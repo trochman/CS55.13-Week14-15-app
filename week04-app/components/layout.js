@@ -9,7 +9,7 @@ export default function Layout( { children, home } ) {
       </Head>
       <header>
         <nav>
-          <a href="/">Home Page</a>
+          <Link href="/">Home Page</Link>
         </nav>
       </header>
       <main>{children}</main>

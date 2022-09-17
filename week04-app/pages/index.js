@@ -21,8 +21,8 @@ export default function Home({allData}) {
         <Link href="/relatives">Relatives Page</Link>
         <div className="list-group">
           {allData.map(({ id, name }) => (
-            <Link href={`/${id}`}>
-              <a key={id} className="list-group-item list-group-item-action">{name}</a>
+            <Link key={id} href={`/${id}`}>
+              <a className="list-group-item list-group-item-action">{name}</a>
             </Link>
           ))}
         </div>

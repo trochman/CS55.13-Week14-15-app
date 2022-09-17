@@ -20,9 +20,7 @@ export default function Relatives({allData}) {
         <h1>List of Heeler Family Relatives</h1>
         <div className="list-group">
           {allData.map(({ id, name }) => (
-            <Link href={`/${id}`}>
-              <a key={id} className="list-group-item list-group-item-action">{name}</a>
-            </Link>
+            <p key={id} className="list-group-item">{name}</p>
           ))}
         </div>
       </Layout>

@@ -1,5 +1,7 @@
 import Head from 'next/head';
-import {getIDs, getOneData, getList} from '../lib/getdata';
+import Image from 'next/image';
+import Layout from '../components/layout';
+import {getIDs, getOneData} from '../lib/getFamilyData';
 
 export async function getStaticProps({params}){
   let id;
@@ -21,11 +23,13 @@ export async function getStaticPaths() {
 
 export default function dataEntry({dataItem}) {
   return (
-    <article className="card col-6">
-      <div className="card-body">
-        <h5 className="card-title">{dataItem.name}</h5>
-        <img src={dataItem.image}></img>
-      </div>
-    </article>
+    <Layout>
+      <article className="card col-6">
+        <div className="card-body">
+          <h5 className="card-title">{dataItem.name}</h5>
+          <Image className="card-img" src={dataItem.image} height={150} width={150} alt={"Picture of" + dataItem.name}></Image>
+        </div>
+      </article>
+    </Layout>
   );
 }

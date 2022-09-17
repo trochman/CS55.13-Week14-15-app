@@ -15,7 +15,6 @@ export function getIDs(){
       }
     }
   );
-  //console.log(returnData);
   return returnData;
 }
 

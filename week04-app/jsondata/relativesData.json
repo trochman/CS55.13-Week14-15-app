@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Muffin",
+    "image": "/Muffin-150.png",
+    "id": 5
+  },
+  {
+    "name": "Socks",
+    "image": "/Socks-150.png",
+    "id": 6
+  },
+  {
+    "name": "Aunt Trixie",
+    "image": "/Aunt_Trixie-150.png",
+    "id": 7
+  },
+  {
+    "name": "Uncle Stripe",
+    "image": "/Uncle_Stripe-150.png",
+    "id": 8
+  }
+]

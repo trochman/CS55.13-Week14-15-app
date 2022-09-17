@@ -3,10 +3,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import Layout from '../components/layout';
-import {getList} from '../lib/getFamilyData';
+import {getSecondList} from '../lib/getRelativesData';
 
 export async function getStaticProps() {
-  const allData = getList();
+  const allData = getSecondList();
   return {
     props: {
       allData
@@ -14,11 +14,10 @@ export async function getStaticProps() {
   }
 }
 
-export default function Home({allData}) {
+export default function Relatives({allData}) {
   return (
       <Layout>
-        <h1>List of Heeler Family Members</h1>
-        <Link href="/relatives">Relatives Page</Link>
+        <h1>List of Heeler Family Relatives</h1>
         <div className="list-group">
           {allData.map(({ id, name }) => (
             <Link href={`/${id}`}>

@@ -18,13 +18,14 @@ export default function Home({allData}) {
   return (
       <Layout>
         <h1>List of Heeler Family Members</h1>
-        <Link href="/relatives">Relatives Page</Link>
         <div className="list-group">
-          {allData.map(({ id, name }) => (
+          {allData ?
+            allData.map(({ id, name }) => (
             <Link key={id} href={`/${id}`}>
               <a className="list-group-item list-group-item-action">{name}</a>
             </Link>
-          ))}
+          ))
+        : null}
         </div>
       </Layout>
   );

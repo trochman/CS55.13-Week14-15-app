@@ -30,6 +30,22 @@ export default function dataEntry({dataItem}) {
           <Image className="card-img" src={dataItem.image} height={150} width={150} alt={"Picture of" + dataItem.name}></Image>
         </div>
       </article>
+      <br></br>
+      <div className="list-group col-6">
+        {dataItem.related ? 
+          <h2>Related Persons</h2> : null
+        }
+        {dataItem.related ? 
+          dataItem.related.map(
+            ({ id, name }) => (
+              <Link key={id} href={`/${id}`}>
+                <a className="list-group-item list-group-item-action">{name}</a>
+              </Link>
+            )
+          )
+          : null
+        }
+      </div>
     </Layout>
   );
 }

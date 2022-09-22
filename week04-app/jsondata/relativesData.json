@@ -1,18 +1,62 @@
 [
    {
-    "name": "Muffin",
+    "person": 13,
+    "related_persons": [3],
+    "id": 1
+  },
+  {
+    "person": 12,
+    "related_persons": [1, 2, 4, 5, 6, 7, 9],
+    "id": 2
+  },
+  {
+    "person": 11,
+    "related_persons": [1, 2, 4, 5, 6, 7, 9],
+    "id": 3
+  },
+  {
+    "person": 9,
+    "related_persons": [11, 12],
+    "id": 4
+  },
+  {
+    "person": 8,
+    "related_persons": [5, 6],
     "id": 5
   },
   {
-    "name": "Socks",
+    "person": 7,
+    "related_persons": [4, 5, 6, 11, 12],
     "id": 6
   },
   {
-    "name": "Aunt Trixie",
+    "person": 6,
+    "related_persons": [1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13],
     "id": 7
   },
   {
-    "name": "Uncle Stripe",
+    "name": 5,
+    "related_persons": [1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13],
     "id": 8
+  },
+  {
+    "name": 4,
+    "related_persons": [1, 2, 7, 9, 11, 12],
+    "id": 9
+  },
+  {
+    "name": 3,
+    "related_persons": [1, 2, 13],
+    "id": 10
+  },
+  {
+    "name": 2,
+    "related_persons": [1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+    "id": 11
+  },
+  {
+    "name": 1,
+    "related_persons": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+    "id": 12
   }
 ]

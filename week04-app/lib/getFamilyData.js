@@ -1,16 +1,23 @@
-import fs from 'fs';
-import path from 'path';
+import got from 'got';
 
-const getData = path.join(process.cwd(), 'jsondata');
+const dataURL = "https://dev-srjc-cs55-13-fall-2023.pantheonsite.io/wp-json/twentytwentytwo-child/v1/latest-posts/1";
 
-export function getIDs(){
-  const fspath = path.join(getData, 'data.json');
-  const jsonStringData = fs.readFileSync(fspath, 'utf8');
-  const jsonObject = JSON.parse(jsonStringData);
+export async function getIDs(){
+  //const fspath = path.join(getData, 'data.json');
+  //const jsonStringData = fs.readFileSync(fspath, 'utf8');
+  let jsonString;
+  try {
+    jsonString = await got(dataURL);
+    console.log(jsonString.body);
+  } catch(error) {
+    jsonString.body = [];
+    console.log(error);
+  }
+  const jsonObject = JSON.parse(jsonString.body);
   const returnData = jsonObject.map(item => {
       return {
         params: {
-          id: item.id.toString()
+          id: item.ID.toString()
         }
       }
     }
@@ -18,33 +25,42 @@ export function getIDs(){
   return returnData;
 }
 
-export function getList(){
-  const fspath = path.join(getData, 'data.json');
-  const jsonStringData = fs.readFileSync(fspath, 'utf8');
-  const jsonObject = JSON.parse(jsonStringData);
+export async function getList(){
+  let jsonString;
+  try {
+    jsonString = await got(dataURL);
+    console.log(jsonString.body);
+  } catch(error) {
+    jsonString.body = [];
+    console.log(error);
+  }
+  const jsonObject = JSON.parse(jsonString.body);
   jsonObject.sort(function(x, y) {
-      return x.name.localeCompare(y.name);
+      return x.post_title.localeCompare(y.post_title);
     }                 
   );
 
   return jsonObject.map(item => {
       return {
-        id: item.id.toString(),
-        name: item.name
+        id: item.ID.toString(),
+        name: item.post_title
       }
     }
   );
 }
 
 export async function getOneData(idRequest){
-  const fspath = path.join(getData, 'data.json');
-  const fs2path = path.join(getData, 'relativesData.json');
-  const jsonStringData = fs.readFileSync(fspath, 'utf8');
-  const jsonString2Data = fs.readFileSync(fs2path, 'utf8');
-  const jsonObject = JSON.parse(jsonStringData);
-  const json2Object = JSON.parse(jsonString2Data);
+  let jsonString;
+  try {
+    jsonString = await got(dataURL);
+    console.log(jsonString.body);
+  } catch(error) {
+    jsonString.body = [];
+    console.log(error);
+  }
+  const jsonObject = JSON.parse(jsonString.body);
   const objectFilter = jsonObject.filter( object => {
-      return object.id.toString() === idRequest;
+      return object.ID.toString() === idRequest;
     }    
   );
 

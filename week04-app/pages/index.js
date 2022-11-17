@@ -1,12 +1,9 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import styles from '../styles/Home.module.css'
+import Link from 'next/link';
 import Layout from '../components/layout';
 import {getList} from '../lib/getFamilyData';
 
 export async function getStaticProps() {
-  const allData = getList();
+  const allData = await getList();
   return {
     props: {
       allData
@@ -17,7 +14,7 @@ export async function getStaticProps() {
 export default function Home({allData}) {
   return (
       <Layout>
-        <h1>List of Heeler Family Members</h1>
+        <h1>List of Names</h1>
         <div className="list-group">
           {allData ?
             allData.map(({ id, name }) => (

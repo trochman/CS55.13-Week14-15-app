@@ -1,6 +1,6 @@
 import got from 'got';
 
-const dataURL = "https://dev-srjc-cs55-13-fall-2023.pantheonsite.io/wp-json/twentytwentytwo-child/v1/latest-posts/1";
+const dataURL = "https://dev-srjc-cs55-13-fall-2023.pantheonsite.io/wp-json/twentytwentytwo-child/v1/special";
 
 export async function getIDs(){
   //const fspath = path.join(getData, 'data.json');
@@ -8,13 +8,13 @@ export async function getIDs(){
   let jsonString;
   try {
     jsonString = await got(dataURL);
-    console.log(jsonString.body);
+    //console.log(jsonString.body);
   } catch(error) {
     jsonString.body = [];
     console.log(error);
   }
   const jsonObject = JSON.parse(jsonString.body);
-  const returnData = jsonObject.map(item => {
+  return jsonObject.map(item => {
       return {
         params: {
           id: item.ID.toString()
@@ -22,7 +22,6 @@ export async function getIDs(){
       }
     }
   );
-  return returnData;
 }
 
 export async function getList(){
@@ -67,20 +66,6 @@ export async function getOneData(idRequest){
   let objectReturn;
   if(objectFilter.length > 0) {
     objectReturn = objectFilter[0];
-    const objectFilter2 = json2Object.filter(object => {
-      return object.related_persons.toString() === idRequest;
-    }
-  );
-  if (objectFilter2.length > 0) {
-    const objectFilter3 = jsonObject.filter(obj => {
-        return objectFilter2[0].related_persons.includes( object.id );
-      }
-    );
-
-    if (objectFilter3.length > 0) {
-      objectReturn.related = objectFilter3;
-    }
-  }
   }
   else {
     objectReturn = {};

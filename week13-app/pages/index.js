@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Layout from '../components/layout';
-import {getList} from '../lib/getFamilyData';
+import {getList} from '../lib/getData';
 
 export async function getStaticProps() {
   const allData = await getList();

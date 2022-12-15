@@ -24,10 +24,11 @@ export default function Entry({ itemData }) {
       <article className="card col-6">
         <div className="card-body">
           <h5 className="card-title">{itemData.post_title}</h5>
-          <h6 className="card-subtitle mb-2 text-muted">{itemData.user_login}</h6>
-          <div className="card-text" dangerouslySetInnerHTML={{__html: itemData.post_content}} />
+          <div className="card-text" dangerouslySetInnerHTML={{__html: itemData.acf_fields}} />
         </div>
       </article>
     </Layout>
   );
 }
+
+//<h6 className="card-subtitle mb-2 text-muted">{itemData.display_name}</h6>

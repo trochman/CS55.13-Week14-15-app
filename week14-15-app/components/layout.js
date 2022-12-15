@@ -9,7 +9,10 @@ export default function Layout( { children, home } ) {
       </Head>
       <header>
         <nav>
-          <Link href="/">Home Page</Link>
+          <Link href="/">Home Page</Link> &nbsp;|&nbsp;
+          <Link href={'/product_list'}>Products</Link> &nbsp;|&nbsp;
+          <Link href={'/contact_list'}>Contacts</Link> &nbsp;|&nbsp;
+          <Link href={'/manufacturer_list'}>Manufacturers</Link>
         </nav>
       </header>
       <main>{children}</main>

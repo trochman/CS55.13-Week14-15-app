@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Layout from '../components/layout';
-import {getList} from '../lib/getData';
+import {getList} from '../lib/getContactData';
 
 export async function getStaticProps() {
   const allData = await getList();
@@ -11,10 +11,10 @@ export async function getStaticProps() {
   }
 }
 
-export default function Home({allData}) {
+export default function Contacts({allData}) {
   return (
       <Layout>
-        <h1>List of All Posts</h1>
+        <h1>List of Contacts</h1>
         <div className="list-group">
           {allData ?
             allData.map(({ id, name }) => (

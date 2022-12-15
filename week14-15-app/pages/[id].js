@@ -1,9 +1,8 @@
 import Layout from '../components/layout';
-import { getIDs, getOneData } from '../lib/getData';
+import { getIDs, getDynamicData } from '../lib/getData';
 
 export async function getStaticProps({ params }) {
-  const itemData = await getOneData(params.id);
-  // console.log(itemData);
+  const itemData = await getDynamicData(params.id);
   return {
     props: {
       itemData

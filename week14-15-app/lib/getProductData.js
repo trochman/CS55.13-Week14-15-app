@@ -1,6 +1,6 @@
 import got from 'got';
 
-const dataURL = "https://dev-srjc-cs55-13-fall-2023.pantheonsite.io/wp-json/twentytwentytwo-child/v1/home";
+const dataURL = "https://dev-srjc-cs55-13-fall-2023.pantheonsite.io/wp-json/twentytwentytwo-child/v1/product";
 
 export async function getIDs(){
   let jsonString;
@@ -42,29 +42,4 @@ export async function getList(){
       }
     }
   );
-}
-
-export async function getDynamicData(idRequest){
-  let jsonString;
-  try {
-    jsonString = await got(dataURL);
-  } catch(error) {
-    jsonString.body = [];
-    console.log(error);
-  }
-  const jsonObject = JSON.parse(jsonString.body);
-  const objectFilter = jsonObject.filter( object => {
-      return object.ID.toString() === idRequest;
-    }    
-  );
-
-  let objectReturn;
-  if(objectFilter.length > 0) {
-    objectReturn = objectFilter[0];
-  }
-  else {
-    objectReturn = {};
-  }
-
-  return objectReturn;
 }

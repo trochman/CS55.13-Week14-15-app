@@ -7,7 +7,8 @@ export async function getStaticProps() {
   return {
     props: {
       allData
-    }
+    },
+    revalidate: 60
   }
 }
 
@@ -18,9 +19,7 @@ export default function Home({allData}) {
         <div className="list-group">
           {allData ?
             allData.map(({ id, name }) => (
-            <Link key={id} href={`/${id}`}>
-              <a className="list-group-item list-group-item-action">{name}</a>
-            </Link>
+              <a key={id} className="list-group-item list-group-item-action">{name}</a>
           ))
         : null}
         </div>

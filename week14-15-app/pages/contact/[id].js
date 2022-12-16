@@ -1,12 +1,14 @@
-import Layout from '../components/layout';
-import { getIDs, getDynamicData } from '../lib/getData';
+import Layout from '../../components/layout';
+import getIDs from '../../lib/getContactData';
+import getDynamicData from '../../lib/getData';
 
 export async function getStaticProps({ params }) {
   const itemData = await getDynamicData(params.id);
   return {
     props: {
       itemData
-    }
+    },
+    revalidate: 60
   };
 }
 
@@ -25,10 +27,9 @@ export default function Entry({ itemData }) {
         <div className="card-body">
           <h5 className="card-title">{itemData.post_title}</h5>
           <div className="card-text" dangerouslySetInnerHTML={{__html: itemData.acf_fields}} />
+          <h5 className="card-text">Posted by<br></br>{itemData.display_name}</h5>
         </div>
       </article>
     </Layout>
   );
 }
-
-//<h6 className="card-subtitle mb-2 text-muted">{itemData.display_name}</h6>

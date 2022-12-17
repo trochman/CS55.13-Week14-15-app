@@ -1,6 +1,6 @@
 import Layout from '../components/layout';
 import {getList} from '../lib/getData';
-import {Flex} from '@chakra-ui/react';
+import { Container } from "@chakra-ui/react";
 
 export async function getStaticProps() {
   const allData = await getList();
@@ -14,7 +14,7 @@ export async function getStaticProps() {
 
 export default function Home({allData}) {
   return (
-      <Layout>
+      <Container>
         <h1>List of All Posts</h1>
         <div className="list-group">
           {allData ?
@@ -23,6 +23,6 @@ export default function Home({allData}) {
           ))
         : null}
         </div>
-      </Layout>
+      </Container>
   );
 }

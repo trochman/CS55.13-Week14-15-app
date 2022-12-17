@@ -8,7 +8,6 @@ export default function Layout( { children, home } ) {
       <Head>
         <title>Tony Rochmans Basic Next.js App</title>
       </Head>
-      <Header/>
       <main>{children}</main>
     </ChakraProvider>
   );

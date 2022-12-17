@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Layout from '../../components/layout';
 import {getList} from '../../lib/getProductData';
+import { Container } from "@chakra-ui/react";
 
 export async function getStaticProps() {
   const allData = await getList();
@@ -14,7 +15,7 @@ export async function getStaticProps() {
 
 export default function Products({allData}) {
   return (
-      <Layout>
+      <Container>
         <h1>List of Products</h1>
         <div className="list-group">
           {allData ?
@@ -25,6 +26,6 @@ export default function Products({allData}) {
           ))
         : null}
         </div>
-      </Layout>
+      </Container>
   );
 }

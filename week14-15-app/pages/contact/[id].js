@@ -1,5 +1,6 @@
 import Layout from '../../components/layout';
 import {getIDs, getDynamicData} from '../../lib/getContactData';
+import { Container } from "@chakra-ui/react";
 
 export async function getStaticProps({ params }) {
   const itemData = await getDynamicData(params.id);
@@ -21,7 +22,7 @@ export async function getStaticPaths() {
 
 export default function Entry({ itemData }) {
   return (
-    <Layout>
+    <Container>
       <article className="card col-6">
         <div className="card-body">
           <h5 className="card-title">{itemData.post_title}</h5><br></br>
@@ -33,6 +34,6 @@ export default function Entry({ itemData }) {
           <p className='card-text'>{itemData.display_name}</p>
         </div>
       </article>
-    </Layout>
+    </Container>
   );
 }

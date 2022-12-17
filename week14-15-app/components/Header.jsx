@@ -38,10 +38,12 @@ export default function Header() {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
+  const Color1 = useColorModeValue('gray.100', 'gray.900');
+  const Color2 = useColorModeValue('gray.200', 'gray.700');
 
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+      <Box bg={Color1} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
@@ -68,7 +70,7 @@ export default function Header() {
                   rounded={'md'}
                   _hover={{
                     textDecoration: 'none',
-                    bg: useColorModeValue('gray.200', 'gray.700'),
+                    bg: {Color2},
                   }}
                   href={link.url}>
                   {link.label}
@@ -96,7 +98,7 @@ export default function Header() {
                   rounded={'md'}
                   _hover={{
                     textDecoration: 'none',
-                    bg: useColorModeValue('gray.200', 'gray.700'),
+                    bg: {Color2},
                   }}
                   href={link.url}>
                   {link.label}

@@ -53,6 +53,7 @@ export async function getDynamicData(idRequest){
     console.log(error);
   }
   const jsonObject = JSON.parse(jsonString.body);
+
   const objectFilter = jsonObject.filter( object => {
       return object.ID.toString() === idRequest;
     }    

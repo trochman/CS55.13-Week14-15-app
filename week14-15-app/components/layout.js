@@ -1,9 +1,10 @@
+import { ChakraProvider } from "@chakra-ui/react";
 import Head from 'next/head';
 import Link from 'next/link';
 
 export default function Layout( { children, home } ) {
   return (
-    <div>
+    <ChakraProvider>
       <Head>
         <title>Tony Rochmans Basic Next.js App</title>
       </Head>
@@ -16,6 +17,6 @@ export default function Layout( { children, home } ) {
         </nav>
       </header>
       <main>{children}</main>
-    </div>
+    </ChakraProvider>
   );
 }

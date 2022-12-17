@@ -1,6 +1,5 @@
 import Layout from '../../components/layout';
-import getIDs from '../../lib/getContactData';
-import getDynamicData from '../../lib/getData';
+import {getIDs, getDynamicData} from '../../lib/getContactData';
 
 export async function getStaticProps({ params }) {
   const itemData = await getDynamicData(params.id);
@@ -25,9 +24,13 @@ export default function Entry({ itemData }) {
     <Layout>
       <article className="card col-6">
         <div className="card-body">
-          <h5 className="card-title">{itemData.post_title}</h5>
-          <div className="card-text" dangerouslySetInnerHTML={{__html: itemData.acf_fields}} />
-          <h5 className="card-text">Posted by<br></br>{itemData.display_name}</h5>
+          <h5 className="card-title">{itemData.post_title}</h5><br></br>
+          <h5 className="card-text">{itemData.acf_fields.first_name} {itemData.acf_fields.last_name}</h5><br></br>
+          <h5 className="card-text">Address:</h5>
+          <p className='card-text'>{itemData.acf_fields.address}</p><br></br>
+          <div className="card-text" dangerouslySetInnerHTML={{__html: itemData.post_content}} />
+          <h5 className="card-text">Posted by</h5>
+          <p className='card-text'>{itemData.display_name}</p>
         </div>
       </article>
     </Layout>

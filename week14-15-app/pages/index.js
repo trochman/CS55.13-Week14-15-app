@@ -1,5 +1,6 @@
 import Layout from '../components/layout';
 import {getList} from '../lib/getData';
+import {Flex} from '@chakra-ui/react';
 
 export async function getStaticProps() {
   const allData = await getList();

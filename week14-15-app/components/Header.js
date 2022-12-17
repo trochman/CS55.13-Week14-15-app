@@ -5,20 +5,18 @@ import {
   HStack,
   Link,
   IconButton,
-  Button,
   Menu,
   MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
   useDisclosure,
   useColorModeValue,
+  useColorMode,
   Stack,
 } from '@chakra-ui/react';
 import { 
   HamburgerIcon, 
   CloseIcon,
-  SettingsIcon,
+  MoonIcon,
+  SunIcon
 } from '@chakra-ui/icons';
 
 const Links = [
@@ -39,6 +37,7 @@ const Links = [
 const Header = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <>
@@ -79,13 +78,8 @@ const Header = () => {
           </HStack>
           <Flex alignItems={'center'}>
             <Menu>
-              <MenuButton
-                as={Button}
-                rounded={'full'}
-                variant={'link'}
-                cursor={'pointer'}
-                minW={0}>
-                <SettingsIcon />
+              <MenuButton onClick={toggleColorMode}>
+                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
               </MenuButton>
             </Menu>
           </Flex>

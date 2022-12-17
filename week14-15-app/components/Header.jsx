@@ -34,7 +34,7 @@ const Links = [
   }
 ];
 
-const Header = () => {
+export default function Header() {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
@@ -108,6 +108,4 @@ const Header = () => {
       </Box>
     </>
 )
-}
-
-export default Header
+};
